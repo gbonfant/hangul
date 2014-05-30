@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="js/handlebars.js"></script>
+  </head>
+  <body>
+
+    <script id="template" type="text/x-handlebars-template">
+      <div>
+        {{#each flashcards}}
+          <div class="l flashcard">
+            <h1 class="flashcard__hangul">{{hangul}}</h1>
+            <span class="block flashcard__roman">{{roman}}</span>
+          </div>
+        {{/each}}
+      </div>
+
+      <div class="clearfix"></div>
+    </script>
+
+
+    <script id="flashcard-template" type="text/x-handlebars-template">
+      <div class="flashcard flashcard__question">
+        <h1 class="flashcard__hangul flashcard__question__heading">{{flashcard.hangul}}</h1>
+
+        <input type="text" id="flashcard-input" class="flashcard__input"></input>
+      </div>
+    </script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -61,17 +61,18 @@
 
   // Input validation
   $('#flashcard-input').on('keyup', function(e, a) {
-    $(this).removeClass('flashcard__incorrect');
-    $(this).parent().removeClass('flashcard__incorrect');
+    $(this).parent().removeClass('has-error');
 
     if (e.keyCode == 13) {
       // Check for validity
       if (randomCard.roman === this.value.toLowerCase()) {
-        alert('yay!');
-        location.reload();
+        $('#success-msg').removeClass('hide');
+
+        setTimeout(function() {
+          location.reload();
+        }, 1000);
       } else {
-        $(this).addClass('flashcard__incorrect');
-        $(this).parent().addClass('flashcard__incorrect');
+        $(this).parent().addClass('has-error');
       }
     }
   })

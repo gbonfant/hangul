@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Hangul learning tool</title>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/main.css">
+
     <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="js/handlebars.js"></script>
   </head>
   <body>
+    <div id="success-msg" class="hide alert alert-success">
+      <h4 class="container" style="text-align:center;">Excellent</h4>
+    </div>
+
 
     <script id="template" type="text/x-handlebars-template">
       <div>
@@ -23,10 +33,11 @@
 
 
     <script id="flashcard-template" type="text/x-handlebars-template">
-      <div class="flashcard flashcard__question">
-        <h1 class="flashcard__hangul flashcard__question__heading">{{flashcard.hangul}}</h1>
+      <div class="flashcard__main panel panel-default">
+        <h1 class="flashcard__hangul flashcard__question__heading control-label">{{flashcard.hangul}}</h1>
 
-        <input type="text" id="flashcard-input" class="flashcard__input"></input>
+        <input type="text" id="flashcard-input" class="flashcard__input form-control"></input>
+        <span class="hide glyphicon glyphicon-remove form-control-feedback"></span>
       </div>
     </script>
 

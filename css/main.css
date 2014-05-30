@@ -4,31 +4,6 @@
 .flashcard__hangul { margin: 0; font-size: 40px; line-height: 46px; }
 .flashcard__roman { text-align: center; font-size: 16px; line-height: 22px; margin-top: 5px; }
 
-.clearfix:after {
-   content: " "; /* Older browser do not support empty content */
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
-}
-
-.flashcard__question { width: 160px; margin: 0 auto; margin-top: 80px; }
+.flashcard__main { width: 30%; margin: 0 auto; text-align: center; margin-top: 8%; }
 .flashcard__question__heading { font-size: 160px; line-height: 166px; }
-
-.flashcard__input {
-  border: 1px solid cadetblue;
-  height: 30px;
-  text-align: center;
-  width: 120px;
-  margin: 0 auto;
-  display: block;
-  font-size: 20px;
-  line-height: 26px;
-  padding: 10px;
-  color: cadetblue;
-  text-transform: uppercase;
-}
-
-.flashcard__incorrect {
-  background: rosybrown;
-}
+.flashcard__input { text-align: center; font-size: 28px; height: 100%; margin-top: 25px; }

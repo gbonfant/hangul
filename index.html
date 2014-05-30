@@ -13,9 +13,16 @@
     <script src="js/handlebars.js"></script>
   </head>
   <body>
-    <div id="success-msg" class="hide alert alert-success">
+    <div id="success-msg" class="hide alert alert-success" style="position:fixed;">
       <h4 class="container" style="text-align:center;">Excellent</h4>
     </div>
+
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <p class="text-info" style="margin-top:10px;">Correct: <span id="correct"></span></p>
+        <p class="text-danger">Incorrect: <span id="incorrect"></span></p>
+      </div>
+    </nav>
 
 
     <script id="template" type="text/x-handlebars-template">

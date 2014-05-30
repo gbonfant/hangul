@@ -43,6 +43,16 @@
     { roman: 'h',   hangul: 'ㅎ', type: 'consonant' },
   ];
 
+  if (!localStorage.getItem('correct')) {
+    localStorage.setItem('correct', 0);
+  }
+
+  if (!localStorage.getItem('incorrect')) {
+    localStorage.setItem('incorrect', 0);
+  }
+
+  updateScore();
+
 
   // Handlebars compilation for hangul table
   var source     = document.getElementById('template').text;
@@ -55,23 +65,39 @@
   // Randomizer
   var flashcardSource   = document.getElementById('flashcard-template').text;
   var flashcardtemplate = Handlebars.compile(flashcardSource);
+
   var randomCard = data[Math.floor(Math.random() * data.length)];
 
   $('body').append(flashcardtemplate({ flashcard: randomCard }));
 
+
+  function updateScore() {
+    $('#correct').text(localStorage.getItem('correct'));
+    $('#incorrect').text(localStorage.getItem('incorrect'));
+  }
+
+
   // Input validation
+  $('#flashcard-input').focus();
   $('#flashcard-input').on('keyup', function(e, a) {
     $(this).parent().removeClass('has-error');
 
     if (e.keyCode == 13) {
       // Check for validity
       if (randomCard.roman === this.value.toLowerCase()) {
+
+        localStorage.setItem('correct', parseInt(localStorage.getItem('correct')) + 1);
+        updateScore();
+
         $('#success-msg').removeClass('hide');
 
         setTimeout(function() {
           location.reload();
         }, 1000);
       } else {
+        localStorage.setItem('incorrect', parseInt(localStorage.getItem('incorrect')) + 1);
+        updateScore();
+
         $(this).parent().addClass('has-error');
       }
     }
